@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="top.yz.boot.mybatis.mapper.StudentMapper">
+  <resultMap id="BaseResultMap" type="top.yz.boot.mybatis.domain.Student">
+    <!--@mbg.generated-->
+    <!--@Table t_student-->
+    <id column="student_id" jdbcType="INTEGER" property="studentId" />
+    <result column="clazz_id" jdbcType="INTEGER" property="clazzId" />
+    <result column="student_name" jdbcType="VARCHAR" property="studentName" />
+    <result column="hometown" jdbcType="VARCHAR" property="hometown" />
+    <result column="birthday" jdbcType="DATE" property="birthday" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    student_id, clazz_id, student_name, hometown, birthday
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from t_student
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from t_student
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="student_id" keyProperty="studentId" parameterType="top.yz.boot.mybatis.domain.Student" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_student (clazz_id, student_name, hometown, 
+      birthday)
+    values (#{clazzId,jdbcType=INTEGER}, #{studentName,jdbcType=VARCHAR}, #{hometown,jdbcType=VARCHAR}, 
+      #{birthday,jdbcType=DATE})
+  </insert>
+  <insert id="insertSelective" keyColumn="student_id" keyProperty="studentId" parameterType="top.yz.boot.mybatis.domain.Student" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into t_student
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="clazzId != null">
+        clazz_id,
+      </if>
+      <if test="studentName != null">
+        student_name,
+      </if>
+      <if test="hometown != null">
+        hometown,
+      </if>
+      <if test="birthday != null">
+        birthday,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="clazzId != null">
+        #{clazzId,jdbcType=INTEGER},
+      </if>
+      <if test="studentName != null">
+        #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        #{birthday,jdbcType=DATE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="top.yz.boot.mybatis.domain.Student">
+    <!--@mbg.generated-->
+    update t_student
+    <set>
+      <if test="clazzId != null">
+        clazz_id = #{clazzId,jdbcType=INTEGER},
+      </if>
+      <if test="studentName != null">
+        student_name = #{studentName,jdbcType=VARCHAR},
+      </if>
+      <if test="hometown != null">
+        hometown = #{hometown,jdbcType=VARCHAR},
+      </if>
+      <if test="birthday != null">
+        birthday = #{birthday,jdbcType=DATE},
+      </if>
+    </set>
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="top.yz.boot.mybatis.domain.Student">
+    <!--@mbg.generated-->
+    update t_student
+    set clazz_id = #{clazzId,jdbcType=INTEGER},
+      student_name = #{studentName,jdbcType=VARCHAR},
+      hometown = #{hometown,jdbcType=VARCHAR},
+      birthday = #{birthday,jdbcType=DATE}
+    where student_id = #{studentId,jdbcType=INTEGER}
+  </update>
+</mapper>

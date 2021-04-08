@@ -1,0 +1,13 @@
+#上传文件大小配置，设置为-1无限制，但是不建议
+#server:
+#  port: 8080
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 300MB
+      max-request-size: 300MB
+  profiles:
+    active: dev
+
+

@@ -1,0 +1,26 @@
+{
+  "name" : "User",
+  "preName" : "",
+  "comment" : null,
+  "templateGroupName" : "Default",
+  "fullColumn" : [ {
+    "name" : "id",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  }, {
+    "name" : "name",
+    "comment" : null,
+    "type" : null,
+    "shortType" : null,
+    "custom" : false,
+    "ext" : { }
+  } ],
+  "pkColumn" : null,
+  "otherColumn" : null,
+  "savePackageName" : "top.yz.boot.mbp",
+  "savePath" : "./spring-boot-mbp/src/main/java/top/yz/boot/mbp",
+  "saveModelName" : "spring-boot-mbp"
+}
